@@ -1,0 +1,14 @@
+services:
+  ironlog:
+    build: .
+    image: ironlog:latest
+    container_name: ironlog
+    restart: unless-stopped
+    env_file: .env
+    ports:
+      - "127.0.0.1:8000:8000"   # keep private; expose through Caddy/nginx with HTTPS
+    volumes:
+      - ironlog-data:/data      # SQLite database lives here (unused when DATABASE_URL points to Postgres)
+
+volumes:
+  ironlog-data:

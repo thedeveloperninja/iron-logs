@@ -1,0 +1,5 @@
+# Replace with your domain. Caddy fetches and renews HTTPS certificates automatically.
+ironlog.example.com {
+    encode gzip
+    reverse_proxy 127.0.0.1:8000
+}
